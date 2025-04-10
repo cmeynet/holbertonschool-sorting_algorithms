@@ -1,3 +1,3 @@
- - **Meilleur cas** : O(n) — lorsque la liste est déjà triée.
- - **Cas moyen** : O(n²) — lorsque la liste est dans un ordre aléatoire.
- - **Pire cas** : O(n²) — lorsque la liste est dans un ordre complètement inversé.
+O(n)
+O(n²)
+O(n²)

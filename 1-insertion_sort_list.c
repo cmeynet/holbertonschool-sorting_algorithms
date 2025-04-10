@@ -8,41 +8,39 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current = *list;
-	listint_t *before = current->prev->prev;
-	listint_t *after = current->prev;
+	listint_t *current, *after;
 
-	while (*list && current == (*list)->next)
+	if (!(*list) || !(*list)->next)
+		return;
+
+	current = (*list)->next;
+
+	while (current != NULL)
 	{
-		if ((*list)->next == NULL)
+		after = current->next;
+
+		while (current->prev && current->n < current->prev->n)
 		{
+			listint_t *a = current->prev;
+			listint_t *b = current;
 
+			if (a->prev)
+				a->prev->next = b;
+			else
+				*list = b;/*b become the head of the list*/
 
+			/*Connect tje node after 'b' to 'a'*/
+			if (b->next)
+				b->next->prev = a;
 
-		}
-		
-		if (current->prev->n > current->n)
-		{
-			if ((*list)->prev == NULL)
-			{
-				current->prev = NULL;
-				current->next = after->next;
-				after->prev = current;
-			}
+			/*Exchange between a and b*/
+			a->next = b->next;
+			b->prev = a->prev;
+			b->next = a;
+			a->prev = b;
 
-			current->prev = before;
-			before->next = current;
-			current->next = after->next;
-			after->prev = current;
-
-			/*if ((*list)->next != NULL)
-			{
-				current->prev = before;
-				before->next = current;
-				current->next = NULL;
-			}*/
 			print_list(*list);
 		}
-		current = current->next;
+		current = after;
 	}
 }

@@ -8,10 +8,15 @@
  * Return: Swapped values
  */
 
- void swap_node()
+ void reposition_node(listint_t **list, listint_t **current)
  {
-	
- }
+	while ((*current)->prev && (*current)->n < (*current)->prev->n)
+	{
+		swap();
+		print_list(*list);
+		*current = (*current)->prev; 
+	}
+}
 
 void insertion_sort_list(listint_t **list)
 {
@@ -19,13 +24,12 @@ void insertion_sort_list(listint_t **list)
 	listint_t *current = *list;
 	current = current->next;
 
-	while(current->next != NULL)
+	while(current != NULL)
 	{
-		if (current > current->next)
+		if (current->prev && current->n < current->prev->n)
 		{
-			//swap;
-		}	
+			reposition_node(list, &current);
+		}
+		current = current->next;
 	}
-
-
 }

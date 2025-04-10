@@ -1,18 +1,16 @@
 #include "sort.h"
 
 /**
- * swap_int - Prints the last digit of a number.
- * @a:first pointer to an int
- * @b: second pointer to an int
+ * swap_node - Swaps two node
+ * @a:first pointer to a node
+ * @b: second pointer to a node
  *
  * Return: Swapped values
  */
 
- void swap_int(int *a, int *b)
+ void swap_node()
  {
-	 int temp = *a;
-	 *a = *b;
-	 *b = temp;
+	
  }
 
 void insertion_sort_list(listint_t **list)
@@ -25,7 +23,7 @@ void insertion_sort_list(listint_t **list)
 	{
 		if (current > current->next)
 		{
-			swap;
+			//swap;
 		}	
 	}
 

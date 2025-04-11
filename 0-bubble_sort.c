@@ -2,7 +2,7 @@
 
 
 /**
- * swap_int - Prints the last digit of a number.
+ * swap_int - swaps two pointers
  * @a:first pointer to an int
  * @b: second pointer to an int
  *
